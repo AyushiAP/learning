@@ -23,7 +23,9 @@ namespace Webgentle.Bookstore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddRazorPages();
+            services.AddControllersWithViews();
+            //services.AddMvc();
+            //services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,10 +48,29 @@ namespace Webgentle.Bookstore
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello BookStore");
-                });
+                endpoints.MapDefaultControllerRoute();
+               // endpoints.MapGet("/", async context =>
+                //{
+
+                    //if (env.IsEnvironment("Develop"))
+                    //{
+                   //     await context.Response.WriteAsync("HEllo from Codesdot Developers!!!!!!!!");
+                   //// }
+                    //if (env.IsDevelopment())
+                    //{
+                    //    await context.Response.WriteAsync("HEllo from Developers!!!!!!!!");
+                    //}
+                    //else  if(env.IsProduction())
+                    //{
+                    //    await context.Response.WriteAsync("hello from Production!!!");
+                    //}
+                    //else if (env.IsStaging())
+                    //{
+                    //    await context.Response.WriteAsync("hello from Stag!!!!");
+                    //}
+                // else
+                //    await context.Response.WriteAsync(env.EnvironmentName);
+                //});
             });
         }
     }
